@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -14,7 +15,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.JLabel;
 
 /**
  * @description:
@@ -24,16 +24,11 @@ import javax.swing.JLabel;
  */
 public class ListUser extends JFrame {
 
-	private JPanel contentPane;
-
 	/**
-	 * Launch the application.
-	 *//*
-		 * public static void main(String[] args) { EventQueue.invokeLater(new
-		 * Runnable() { public void run() { try { ListUser frame = new ListUser();
-		 * frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); } } });
-		 * }
-		 */
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
 
 	/**
 	 * Create the frame.
@@ -48,14 +43,14 @@ public class ListUser extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		// contentPane.setLayout(new BorderLayout(0, 0));
 
-		final DefaultListModel fruitsName = new DefaultListModel();
+		final DefaultListModel<String> fruitsName = new DefaultListModel<String>();
 
 		fruitsName.addElement("Apple");
 		fruitsName.addElement("Grapes");
 		fruitsName.addElement("Mango");
 		fruitsName.addElement("Peer");
 
-		final JList fruitList = new JList(fruitsName);
+		final JList fruitList = new JList<String>(fruitsName);
 		fruitList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		fruitList.setSelectedIndex(0);
 		fruitList.setVisibleRowCount(3);
@@ -63,14 +58,13 @@ public class ListUser extends JFrame {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				// TODO Auto-generated method stub
 				lblNewLabel.setText((String) fruitList.getSelectedValue());
 			}
 		});
 
 		JScrollPane fruitListScrollPane = new JScrollPane(fruitList);
 
-		final DefaultListModel vegName = new DefaultListModel();
+		final DefaultListModel<String> vegName = new DefaultListModel<String>();
 
 		vegName.addElement("Lady Finger");
 		vegName.addElement("Onion");
@@ -89,9 +83,7 @@ public class ListUser extends JFrame {
 		contentPane.setVisible(true);
 		setContentPane(contentPane);
 
-		
 		contentPane.add(lblNewLabel);
 	}
-
 
 }
